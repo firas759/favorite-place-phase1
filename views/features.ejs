@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<h1>Places</h1>
+
+<% if (places.length > 0) { %>
+
+  <ul>
+
+    <% for(let place of places) { %>
+
+      <li class="mb-3">
+        <a href="/place/<%= place.id %>">
+          <%= place.name %>
+        </a>
+      </li>
+
+    <% } %>
+
+  </ul>
+
+<% } else { %>
+
+  <p>No places available</p>
+
+<% } %>
+
+<%- include('partials/footer') %>

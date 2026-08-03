@@ -1,0 +1,11 @@
+<%- include('partials/header') %>
+
+<% if (place) { %>
+  <h1><%= place.name %></h1>
+  <p>City: <%= place.city %></p>
+  <p><%= place.description %></p>
+<% } else { %>
+  <p>Place not found</p>
+<% } %>
+
+<%- include('partials/footer') %>
