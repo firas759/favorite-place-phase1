@@ -1,0 +1,25 @@
+<%- include('partials/header') %>
+
+<h1 class="mb-4">My Submissions</h1>
+
+<% if (submissions.length === 0) { %>
+  <div class="alert alert-info">You have not submitted any places yet.</div>
+  <a href="/submit" class="btn btn-primary">Submit Your First Place</a>
+<% } else { %>
+  <div class="row g-3">
+    <% submissions.forEach(item => { %>
+      <div class="col-md-6">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5 class="card-title"><%= item.name %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= item.city %></h6>
+            <p class="card-text"><%= item.description %></p>
+            <small class="text-muted">Submitted: <%= item.createdAt.toLocaleString() %></small>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
+
+<%- include('partials/footer') %>

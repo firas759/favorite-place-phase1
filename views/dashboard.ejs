@@ -1,0 +1,17 @@
+<%- include('partials/header') %>
+
+<div class="p-5 mb-4 bg-body-tertiary rounded-3 shadow-sm">
+  <h1>Welcome, <%= currentUser.name %>!</h1>
+  <p class="lead">This is your personal dashboard.</p>
+  <p>You currently have <strong><%= submissionCount %></strong> submitted place(s).</p>
+  <a href="/submit" class="btn btn-primary">Submit a Favorite Place</a>
+  <a href="/my-submissions" class="btn btn-outline-primary">View My Submissions</a>
+</div>
+
+<div class="row g-3">
+  <div class="col-md-4"><div class="card h-100"><div class="card-body"><h5>Account</h5><p><%= currentUser.email %></p></div></div></div>
+  <div class="col-md-4"><div class="card h-100"><div class="card-body"><h5>Search</h5><p>Find favorite places quickly.</p><a href="/search" class="btn btn-sm btn-outline-primary">Search</a></div></div></div>
+  <div class="col-md-4"><div class="card h-100"><div class="card-body"><h5>Preferences</h5><p>Choose your preferred theme.</p><a href="/preferences" class="btn btn-sm btn-outline-primary">Preferences</a></div></div></div>
+</div>
+
+<%- include('partials/footer') %>

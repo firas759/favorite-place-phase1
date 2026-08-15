@@ -1,0 +1,29 @@
+body {
+  font-family: Arial, sans-serif;
+  padding-bottom: 30px;
+}
+
+img {
+  margin-top: 15px;
+  border-radius: 10px;
+}
+
+.dark-mode {
+  background: #1f2327;
+  color: #f5f5f5;
+}
+
+.dark-mode .card,
+.dark-mode .bg-body-tertiary {
+  background-color: #2b3035 !important;
+  color: #f5f5f5;
+}
+
+.dark-mode .navbar {
+  background-color: #2b3035 !important;
+}
+
+.dark-mode .navbar-brand,
+.dark-mode .nav-link {
+  color: #f5f5f5 !important;
+}

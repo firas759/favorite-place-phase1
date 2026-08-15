@@ -1,0 +1,33 @@
+<%- include('partials/header') %>
+
+<h1 class="mb-4">Search Places</h1>
+
+<form method="GET" action="/search" class="row g-2 mb-4">
+  <div class="col-md-10">
+    <input class="form-control" type="search" name="q" value="<%= query %>" placeholder="Search by place, city, or description">
+  </div>
+  <div class="col-md-2"><button class="btn btn-primary w-100" type="submit">Search</button></div>
+</form>
+
+<% if (query) { %><p>Search results for: <strong><%= query %></strong></p><% } %>
+
+<% if (results.length === 0) { %>
+  <div class="alert alert-warning">No places found.</div>
+<% } else { %>
+  <div class="row g-3">
+    <% results.forEach(place => { %>
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm">
+          <div class="card-body">
+            <h5><%= place.name %></h5>
+            <p class="text-muted"><%= place.city %></p>
+            <p><%= place.description %></p>
+            <a href="/place/<%= place.id %>" class="btn btn-outline-primary btn-sm">View Details</a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
+
+<%- include('partials/footer') %>

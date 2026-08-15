@@ -1,0 +1,30 @@
+<%- include('partials/header') %>
+
+<div class="row justify-content-center">
+  <div class="col-md-8">
+    <h1 class="mb-4">Submit a Favorite Place</h1>
+
+    <% if (success) { %><div class="alert alert-success"><%= success %></div><% } %>
+
+    <% if (errors && errors.length) { %>
+      <div class="alert alert-danger">
+        <ul class="mb-0"><% errors.forEach(error => { %><li><%= error.msg %></li><% }) %></ul>
+      </div>
+    <% } %>
+
+    <form method="POST" action="/submit" class="card card-body shadow-sm">
+      <label class="form-label">Place Name</label>
+      <input class="form-control mb-3" type="text" name="name" value="<%= formData.name || '' %>" required>
+
+      <label class="form-label">City</label>
+      <input class="form-control mb-3" type="text" name="city" value="<%= formData.city || '' %>" required>
+
+      <label class="form-label">Description</label>
+      <textarea class="form-control mb-3" name="description" rows="5" required><%= formData.description || '' %></textarea>
+
+      <button class="btn btn-primary" type="submit">Submit Place</button>
+    </form>
+  </div>
+</div>
+
+<%- include('partials/footer') %>

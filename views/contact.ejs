@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+
+<h1>Contact</h1>
+
+<% if (success) { %><div class="alert alert-success"><%= success %></div><% } %>
+
+<% if (errors && errors.length) { %>
+  <div class="alert alert-danger">
+    <ul class="mb-0"><% errors.forEach(error => { %><li><%= error.msg %></li><% }) %></ul>
+  </div>
+<% } %>
+
+<form method="POST" action="/contact" class="card card-body shadow-sm">
+  <input type="text" name="name" value="<%= formData.name || '' %>" placeholder="Your Name" class="form-control mb-3">
+  <input type="email" name="email" value="<%= formData.email || '' %>" placeholder="Email" class="form-control mb-3">
+  <textarea name="message" placeholder="Message" class="form-control mb-3" rows="5"><%= formData.message || '' %></textarea>
+  <button type="submit" class="btn btn-primary">Send</button>
+</form>
+
+<%- include('partials/footer') %>
